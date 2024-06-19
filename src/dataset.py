@@ -35,7 +35,7 @@ class SierraDataset(Dataset):
         fname = self.fnames[idx]
         fpath = os.path.join(self.root_dir, fname)
         with open(fpath, "rb") as f:
-            img = np.load(f)
+            img = np.load(f) / 255.0
 
         # Read ground truth
         label = get_label_from_fname(fname, self.gt_data)
